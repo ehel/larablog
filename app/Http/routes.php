@@ -18,3 +18,5 @@ Route::auth();
 Route::get('/', 'HomeController@index');
 
 Route::resource('/posts', 'PostsController');
+
+require('Macros/form-macros.php');

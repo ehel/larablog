@@ -27,7 +27,8 @@ class PostsController extends Controller
      */
     public function create()
     {
-        //
+        $model = new \StdClass;
+        return view('posts.create')->with('model', $model);
     }
 
     /**
@@ -38,7 +39,7 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Post::create($request->all());
     }
 
     /**
@@ -61,7 +62,8 @@ class PostsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $model = Post::findOrFail($id);
+        return view('posts.create')->with('model', $model);
     }
 
     /**
@@ -73,7 +75,7 @@ class PostsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        Post::findOrFail($id)->update($request->all());
     }
 
     /**
@@ -84,6 +86,6 @@ class PostsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Post::findOrFail($id)->delete();
     }
 }
