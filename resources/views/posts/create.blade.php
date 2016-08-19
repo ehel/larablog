@@ -8,8 +8,9 @@
                 <div class="panel panel-default">
 
                     <div class="panel-body">
-                        {!! Form::model($model, ['class' => 'form-horizontal']) !!}
+                        {!! Form::model($model, ['url' => 'posts','class' => 'form-horizontal']) !!}
                         <div class="form-body">
+                            {{csrf_field()}}
 
                             {{ Form::field('Title', Form::text('title', NULL, ['class' => 'form-control']), 'required') }}
                             {{ Form::field('Preview', Form::textarea('preview', NULL, ['class' => 'form-control']), 'required') }}
@@ -17,7 +18,7 @@
 
                             <div class="form-group">
                             <div class="col-md-4 col-md-offset-3">
-                            {!! Form::submit('Save', ['class' => 'btn default green', 'data-action' => (isset($model->id) ? 'update' : 'store'), 'data-scope' => 'action', 'data-id' => (isset($model->id) ? $model->id : NULL) ]) !!}
+                            {!! Form::submit('Save', ['class' => 'btn default green']) !!}
                                 <a href="{{ action('PostsController@index') }}" class =' btn default silver'> Cancel</a>
                             </div>
                             </div>
