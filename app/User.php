@@ -29,4 +29,13 @@ class User extends Authenticatable
         return $this->hasMany('App\Post', 'author_id');
     }
 
+    /**
+     * Check if the user is Author or Admin
+     * @return bool
+     */
+    public function isAuthor() {
+
+        return $this->role == 'author' || $this->role == 'admin';
+    }
+
 }

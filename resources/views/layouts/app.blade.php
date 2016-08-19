@@ -12,8 +12,8 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700">
 
     <!-- Styles -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
+
+    <link href="/css/app.css" rel="stylesheet">
 
     <style>
         body {
@@ -42,6 +42,7 @@
                 <a class="navbar-brand" href="{{ url('/') }}">
                     Larablog
                 </a>
+
             </div>
 
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
@@ -49,6 +50,8 @@
                 <ul class="nav navbar-nav">
                     <li><a href="{{ url('/posts') }}">Posts</a></li>
                 </ul>
+
+
 
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right">

@@ -16,6 +16,20 @@
 
                     </div>
                 </div>
+
+                <div class="panel panel-default">
+                    <div class="panel-heading"><h3>Comments</h3></div>
+                    <div class="panel-body">
+
+
+                    </div>
+                    <div class="panel-footer">
+                        <form action="">
+                            <textarea name="comment" rows="3" placeholder="Write your comment here!"></textarea>
+                            <button type="submit" class="btn btn-primary">Post</button>
+                        </form>
+                    </div>
+                </div>
             </div>
 
 
