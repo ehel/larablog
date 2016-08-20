@@ -2,10 +2,13 @@
 
 namespace App;
 
+use App\Traits\Likeable;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 
 class Comment extends Model
 {
+    use Likeable;
     /**
      * The attributes that are mass assignable.
      *
@@ -24,4 +27,6 @@ class Comment extends Model
     {
         return $this->belongsTo('App\Post');
     }
+
+
 }

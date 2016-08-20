@@ -3,6 +3,7 @@
 namespace App;
 
 use AlgoliaSearch\Laravel\AlgoliaEloquentTrait;
+use App\Traits\Likeable;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
@@ -11,7 +12,7 @@ use Mews\Purifier\Facades\Purifier;
 class Post extends Model
 {
 //    use AlgoliaEloquentTrait;
-
+        use Likeable;
 
     /**
      * The attributes that are mass assignable.
@@ -74,4 +75,6 @@ class Post extends Model
         }
         return false;
     }
+
+
 }

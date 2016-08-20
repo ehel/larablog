@@ -29,6 +29,18 @@
                         </div>
 
                     </div>
+                    <div class="panel-footer">
+                        <a href="https://www.facebook.com/sharer/sharer.php?u={{url()->current()}}" target="_blank">
+                            <i class="fa fa-facebook" aria-hidden="true"></i>  Share on Facebook
+                        </a>
+                        @if ($post->isLiked)
+                            <a href="{{ action('LikesController@likePost', [$post->id]) }}">Unlike</a>
+                        @else
+                            <a href="{{ action('LikesController@likePost', [$post->id]) }}">Like this Post</a>
+                        @endif
+
+
+                    </div>
                 </div>
 
                 <div class="panel panel-default">
@@ -37,6 +49,11 @@
                     @foreach($post->comments as $comment)
                         {{$comment->user->name}}
                         <p>{{$comment->body}}</p>
+                            @if ($comment->isLiked)
+                                <a href="{{ action('LikesController@likeComment', [$comment->id]) }}">Unlike</a>
+                            @else
+                                <a href="{{ action('LikesController@likeComment', [$comment->id]) }}">Like this Comment</a>
+                            @endif
                         @endforeach
 
                     </div>

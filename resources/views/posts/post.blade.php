@@ -24,6 +24,15 @@
             <a href="https://www.facebook.com/sharer/sharer.php?u={{url('posts', [$post->id])}}" target="_blank">
                 <i class="fa fa-facebook" aria-hidden="true"></i>  Share on Facebook
             </a>
+            {{$post->likesCount()}}
+            @if ($post->isLiked)
+                <a href="{{ action('LikesController@likePost', [$post->id]) }}">Unlike</a>
+            @else
+                <a href="{{ action('LikesController@likePost', [$post->id]) }}">Like this Post</a>
+            @endif
+
+
+
         </div>
     </div>
 </div>
