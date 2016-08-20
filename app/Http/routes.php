@@ -18,5 +18,6 @@ Route::auth();
 Route::get('/', 'HomeController@index');
 
 Route::resource('/posts', 'PostsController');
+Route::post('add_comment', 'CommentsController@store');
 
 require('Macros/form-macros.php');

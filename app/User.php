@@ -29,6 +29,11 @@ class User extends Authenticatable
         return $this->hasMany('App\Post', 'author_id');
     }
 
+    public function comments()
+    {
+        return $this->hasMany('App\Comment');
+    }
+
     /**
      * Check if the user is Author or Admin
      * @return bool

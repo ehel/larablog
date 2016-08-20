@@ -57,6 +57,7 @@ class PostsController extends Controller
     {
         $post = new Post($request->all());
         Auth::user()->posts()->save($post);
+        return redirect()->action('PostsController@show', ['id' => $post->id]);
 
     }
 
@@ -81,7 +82,11 @@ class PostsController extends Controller
     public function edit($id)
     {
         $model = Post::findOrFail($id);
+        if(!$model->isOwnedByAuthenticatedUser()){
+            return response('Unauthorized.', 401);
+        }
         return view('posts.create')->with('model', $model);
+
     }
 
     /**
@@ -93,7 +98,12 @@ class PostsController extends Controller
      */
     public function update(PostsRequest $request, $id)
     {
-        Post::findOrFail($id)->update($request->all());
+        $post = Post::findOrFail($id);
+        if(!$post->isOwnedByAuthenticatedUser()){
+            return response('Unauthorized.', 401);
+        }
+        $post->update($request->all());
+        return redirect()->action('PostsController@index');
     }
 
     /**
@@ -104,6 +114,11 @@ class PostsController extends Controller
      */
     public function destroy($id)
     {
-        Post::findOrFail($id)->delete();
+        $post = Post::findOrFail($id);
+        if(!$post->isOwnedByAuthenticatedUser()){
+            return response('Unauthorized.', 401);
+        }
+        $post->delete();
+        return redirect()->action('PostsController@index');
     }
 }
