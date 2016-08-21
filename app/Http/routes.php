@@ -24,5 +24,12 @@ Route::get('like_post/{id}', 'LikesController@likePost');
 Route::get('like_comment/{id}', 'LikesController@likeComment');
 //Search
 Route::get('search', 'SearchController@search');
+//Api
+Route::group(['prefix' => 'api'], function () {
+    Route::get('posts', 'ApiController@index');
+    Route::get('posts/search', 'ApiController@search');
+    Route::get('posts/{id}', 'ApiController@show');
+
+});
 
 require('Macros/form-macros.php');

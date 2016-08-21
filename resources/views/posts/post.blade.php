@@ -23,12 +23,12 @@
         <div class="panel-footer">
             <a href="https://www.facebook.com/sharer/sharer.php?u={{url('posts', [$post->id])}}" target="_blank">
                 <i class="fa fa-facebook" aria-hidden="true"></i>  Share on Facebook
-            </a>
-            {{$post->likesCount()}}
+            </a> |
+            {{$post->likesCount()}} Likes |
             @if ($post->isLiked)
-                <a href="{{ action('LikesController@likePost', [$post->id]) }}">Unlike</a>
+                <a href="{{ action('LikesController@likePost', [$post->id]) }}"><i class="fa fa-thumbs-down" aria-hidden="true"></i> Unlike</a>
             @else
-                <a href="{{ action('LikesController@likePost', [$post->id]) }}">Like this Post</a>
+                <a href="{{ action('LikesController@likePost', [$post->id]) }}"><i class="fa fa-thumbs-up" aria-hidden="true"></i> Like this Post</a>
             @endif
 
 
