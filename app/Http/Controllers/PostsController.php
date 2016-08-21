@@ -36,6 +36,12 @@ class PostsController extends Controller
         return view('home')->with('posts', $posts);
     }
 
+    public function userPosts()
+    {
+        $posts = Auth::user()->posts()->orderBy('updated_at', 'desc')->paginate(10);
+        return view('home')->with('posts', $posts);
+    }
+
     /**
      * Show the form for creating a new resource.
      *

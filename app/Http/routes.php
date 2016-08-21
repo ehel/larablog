@@ -16,8 +16,10 @@
 Route::auth();
 
 Route::get('/', 'HomeController@index');
-
+//Posts
 Route::resource('/posts', 'PostsController');
+Route::get('my_posts', 'PostsController@userPosts');
+//Comments
 Route::post('add_comment', 'CommentsController@store');
 //Like Routes
 Route::get('like_post/{id}', 'LikesController@likePost');
@@ -30,6 +32,11 @@ Route::group(['prefix' => 'api'], function () {
     Route::get('posts/search', 'ApiController@search');
     Route::get('posts/{id}', 'ApiController@show');
 
+});
+
+Route::group(['middleware' => 'App\Http\Middleware\Admin'], function () {
+    Route::get('/admin', 'AdminController@index');
+    Route::POST('/change_role', 'AdminController@changeRole');
 });
 
 require('Macros/form-macros.php');

@@ -53,14 +53,16 @@
                                 {{$comment->user->name}}
                             </div>
                             <div class="date">
-                                <small><i class="fa fa-clock-o" aria-hidden="true"></i> {{$comment->updated_at}}</small>
+                                <small><i class="fa fa-clock-o" aria-hidden="true"></i> {{$comment->updated_at}} |
+                                    @if ($comment->isLiked)
+                                        <a href="{{ action('LikesController@likeComment', [$comment->id]) }}"><i class="fa fa-thumbs-down" aria-hidden="true"></i> Unlike</a>
+                                    @else
+                                        <a href="{{ action('LikesController@likeComment', [$comment->id]) }}"><i class="fa fa-thumbs-up" aria-hidden="true"></i> Like this Comment</a>
+                                    @endif
+                                </small>
                             </div>
                             <p>{{$comment->body}}</p>
-                            @if ($comment->isLiked)
-                                <a href="{{ action('LikesController@likeComment', [$comment->id]) }}"><i class="fa fa-thumbs-down" aria-hidden="true"></i> Unlike</a>
-                            @else
-                                <a href="{{ action('LikesController@likeComment', [$comment->id]) }}"><i class="fa fa-thumbs-up" aria-hidden="true"></i> Like this Comment</a>
-                            @endif
+
                             <div class="divider">
 
                             </div>

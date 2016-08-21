@@ -8,7 +8,8 @@
                 <div class="panel-heading">Welcome</div>
 
                 <div class="panel-body">
-                    Your Application's Landing Page.
+                    <h3>This is landing page</h3>
+                    <a href="/posts">View all Posts</a>
 
                 </div>
             </div>

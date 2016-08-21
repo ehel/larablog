@@ -5797,4 +5797,7 @@ body {
   border-bottom: 1px solid #e8e8e8;
   margin: 20px 0; }
 
+select {
+  padding: 6px; }
+
 /*# sourceMappingURL=app.css.map */
