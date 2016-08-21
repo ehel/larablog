@@ -50,6 +50,12 @@
                 <ul class="nav navbar-nav">
                     <li><a href="{{ url('/posts') }}">Posts</a></li>
                 </ul>
+                <form action="/search" method="GET" class="navbar-form navbar-left" role="search">
+                    <div class="form-group">
+                        <input type="text" name="search_query" class="form-control" placeholder="Search">
+                    </div>
+                    <button type="submit" class="btn btn-default">Search</button>
+                </form>
 
 
 
@@ -60,6 +66,7 @@
                         <li><a href="{{ url('/login') }}">Login</a></li>
                         <li><a href="{{ url('/register') }}">Register</a></li>
                     @else
+                        <li><a href="{{ url('/posts/create') }}">Create New Post</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                 {{ Auth::user()->name }} <span class="caret"></span>

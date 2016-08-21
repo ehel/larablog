@@ -11,8 +11,11 @@ use Mews\Purifier\Facades\Purifier;
 
 class Post extends Model
 {
-//    use AlgoliaEloquentTrait;
-        use Likeable;
+    use AlgoliaEloquentTrait, Likeable;
+
+    public $indices = ['larablog_posts'];
+
+
 
     /**
      * The attributes that are mass assignable.

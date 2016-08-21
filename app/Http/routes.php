@@ -22,5 +22,7 @@ Route::post('add_comment', 'CommentsController@store');
 //Like Routes
 Route::get('like_post/{id}', 'LikesController@likePost');
 Route::get('like_comment/{id}', 'LikesController@likeComment');
+//Search
+Route::get('search', 'SearchController@search');
 
 require('Macros/form-macros.php');
