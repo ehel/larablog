@@ -20,7 +20,7 @@
 */
 
 require __DIR__.'/../bootstrap/autoload.php';
-ini_set('xdebug.max_nesting_level', 300);
+
 
 /*
 |--------------------------------------------------------------------------

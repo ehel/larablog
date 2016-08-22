@@ -12,24 +12,19 @@ class LikesController extends Controller
 {
     public function likeComment($id)
     {
-
-
-        $this->handleLike('App\Comment', $id);
+        $this->toggleLike('App\Comment', $id);
         return redirect()->back();
     }
 
     public function likePost($id)
     {
-
-
-        $this->handleLike('App\Post', $id);
+        $this->toggleLike('App\Post', $id);
         return redirect()->back();
     }
 
-    private function handleLike($type, $id)
+    private function toggleLike($type, $id)
     {
         $existing_like = Like::withTrashed()->whereLikeableType($type)->whereLikeableId($id)->whereUserId(Auth::id())->first();
-
         if (is_null($existing_like)) {
             Like::create([
                 'user_id' => Auth::id(),

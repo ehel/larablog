@@ -19,11 +19,8 @@ class CommentsController extends Controller
      */
     public function store(CommentsRequest $request)
     {
-
-
         $comment = new Comment($request->all());
         Auth::user()->comments()->save($comment);
-
         return back();
 
     }

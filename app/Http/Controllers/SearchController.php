@@ -12,6 +12,7 @@ class SearchController extends Controller
     public function search(Request $request){
 
         $posts = Post::search($request->search_query)['hits'];
+
         return view('search.search_result')->with('posts', $posts);
     }
 }
